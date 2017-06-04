@@ -13,6 +13,17 @@ class AES256
 		~AES256();
 		void Encrypte(UC*,UINT);
 		void Decrypte(UC*,UINT);
+	#ifdef _AES256UnitTest_
+		void Public_Rijndael_key();
+		void Public_AddRoundKey(UC*,UINT,UINT);
+		void Public_ShiftRow(UC*,UINT);
+		void Public_MixColumn(UC*,UINT);
+		void Public_SboxMap(UC*,UINT);
+		void Public_inver_ShiftRow(UC*,UINT);
+		void Public_inver_MixColumn(UC*,UINT);
+		void Public_inver_SboxMap(UC*,UINT);
+		UC* Public_AccessRoundKey(UINT);
+	#endif
 	private:
 		//function
 		void Rijndael_key();

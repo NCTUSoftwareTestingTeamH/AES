@@ -193,3 +193,44 @@ void AES256::inver_SboxMap(UC* str,UINT pos)
 {
 	for(UINT i=0;i<16;++i)str[pos+i]=inv_sbox_table[str[pos+i]];
 }
+
+
+
+//Unit test public funtion call
+void AES256::Public_Rijndael_key()
+{
+	Rijndael_key();
+}
+void AES256::Public_AddRoundKey(UC* str,UINT a,UINT b)
+{
+	AddRoundKey(str,a,b);
+}
+void AES256::Public_ShiftRow(UC* str,UINT a)
+{
+	ShiftRow(str,a);
+}
+void AES256::Public_MixColumn(UC* str,UINT a)
+{
+	MixColumn(str,a);
+}
+void AES256::Public_SboxMap(UC* str,UINT a)
+{
+	SboxMap(str,a);
+}
+void AES256::Public_inver_ShiftRow(UC* str,UINT a)
+{
+	inver_ShiftRow(str,a);
+}
+void AES256::Public_inver_MixColumn(UC* str,UINT a)
+{
+	inver_MixColumn(str,a);
+}
+void AES256::Public_inver_SboxMap(UC* str,UINT a)
+{
+	inver_SboxMap(str,a);
+}
+UC* AES256::Public_AccessRoundKey(UINT setNum)
+{
+	return Roundkey[setNum];
+}
+
