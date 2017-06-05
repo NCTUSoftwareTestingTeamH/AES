@@ -197,6 +197,7 @@ void AES256::inver_SboxMap(UC* str,UINT pos)
 
 
 //Unit test public funtion call
+#ifdef _AES256UnitTest_
 void AES256::Public_Rijndael_key()
 {
 	Rijndael_key();
@@ -233,4 +234,5 @@ UC* AES256::Public_AccessRoundKey(UINT setNum)
 {
 	return Roundkey[setNum];
 }
+#endif
 
