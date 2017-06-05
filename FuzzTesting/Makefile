@@ -1,0 +1,19 @@
+CC = afl-g++
+BASEFILE = type.h
+AESFILE = AESCONST.h AES256.h AES256.cpp
+SHAFILE = SHA256.h SHA256.cpp
+FEAPATH = ..
+
+all: FuzzTest
+
+FuzzTest: AES256 SHA256 FuzzTest.cpp
+	$(CC) -o FuzzTest AES256.o SHA256.o FuzzTest.cpp -D_AES256UnitTest_
+
+AES256: $(FEAPATH)/$(BASEFILE) $(FEAPATH)/SHA256.h $(FEAPATH)/AESCONST.h $(FEAPATH)/AES256.h $(FEAPATH)/AES256.cpp
+	$(CC) -c -o AES256.o $(FEAPATH)/AES256.cpp -D_AES256UnitTest_
+
+SHA256: $(FEAPATH)/$(BASEFILE) $(FEAPATH)/SHA256.h $(FEAPATH)/SHA256.cpp
+	$(CC) -c -o SHA256.o $(FEAPATH)/SHA256.cpp
+
+clean:
+	rm -f *.o
